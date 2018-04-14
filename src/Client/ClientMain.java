@@ -1,13 +1,16 @@
 package Client;
 
 import Client.ClientController.Controller;
-import Client.ClientView.BackgroundImageJFrame;
+import Client.ClientView.MainView;
 
 public class ClientMain {
     public static void main(String args[]) {
-        BackgroundImageJFrame bImage =  new BackgroundImageJFrame();
-        Controller controller = new Controller(bImage);
-        bImage.registerController(controller);
-        bImage.setVisible(true);
+
+        MainView view = new MainView();
+
+       // BackgroundImageJFrame bImage =  new BackgroundImageJFrame();
+        Controller controller = new Controller(view);
+        view.registerController(controller);
+        view.setVisible(true);
     }
 }

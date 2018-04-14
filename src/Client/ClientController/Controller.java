@@ -1,6 +1,7 @@
 package Client.ClientController;
 
-import Client.ClientView.BackgroundImageJFrame;
+import Client.ClientView.LabelClass;
+import Client.ClientView.MainView;
 
 import javax.swing.*;
 import java.awt.event.ActionEvent;
@@ -13,11 +14,12 @@ import java.util.concurrent.TimeUnit;
 public class Controller extends Thread implements ActionListener, KeyListener {
     private Timer t;
     private int x;
-    private BackgroundImageJFrame bImage;
+    private MainView view;
     private boolean isBack;
+    private LabelClass label;
 
-    public Controller(BackgroundImageJFrame bImage){
-        this.bImage = bImage;
+    public Controller(MainView view){
+        this.view = view;
         this.start();
     }
 
@@ -30,15 +32,17 @@ public class Controller extends Thread implements ActionListener, KeyListener {
     public void keyPressed(KeyEvent e) {
         if(e.getKeyCode()==10){
             System.out.println("pressed");
-            bImage.stopMusic();
-            bImage.runMusic(new File("data/Laser.wav"));
+            view.stopMusic();
+            view.runMusic(new File("data/Laser.wav"));
             try {
                 TimeUnit.MILLISECONDS.sleep(1600);
+                view.changePanel("2");
+
             } catch (InterruptedException e1) {
                 e1.printStackTrace();
             }
-            bImage.stopMusic();
-            bImage.closeFrame();
+            view.stopMusic();
+
 
 
 
@@ -51,7 +55,7 @@ public class Controller extends Thread implements ActionListener, KeyListener {
     public void keyReleased(KeyEvent e) {
     }
 
-    @Override
+   @Override
     public void run(){
         x=50;
         isBack=false;
@@ -63,7 +67,7 @@ public class Controller extends Thread implements ActionListener, KeyListener {
                     isBack=true;
                 }
                 if(isBack){
-                    bImage.setFade(157,207,222, x--);
+                    view.setFadeaux(157,207,222, x--);
                     if(x==50){
                         isBack=false;
                         t.start();
@@ -71,7 +75,7 @@ public class Controller extends Thread implements ActionListener, KeyListener {
                     }
 
                 }else{
-                    bImage.setFade(157,207,222, x++);
+                    view.setFadeaux(157,207,222, x++);
 
                 }
 
