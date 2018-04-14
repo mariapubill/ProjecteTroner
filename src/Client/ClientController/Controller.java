@@ -5,8 +5,10 @@ import Client.ClientView.BackgroundImageJFrame;
 import javax.swing.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 
-public class Controller extends Thread implements ActionListener {
+public class Controller extends Thread implements ActionListener, KeyListener {
     private Timer t;
     private int x;
     private BackgroundImageJFrame bImage;
@@ -19,6 +21,19 @@ public class Controller extends Thread implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e){
+    }
+
+    @Override
+    public void keyPressed(KeyEvent e) {
+        System.out.println("s'ha apretat una tecla pressed");
+    }
+    @Override
+    public void keyTyped(KeyEvent e) {
+        System.out.println("s'ha apretat una tecla typed");
+    }
+    @Override
+    public void keyReleased(KeyEvent e) {
+        System.out.println("s'ha apretat una tecla realased");
     }
 
     @Override

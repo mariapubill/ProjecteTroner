@@ -1,5 +1,6 @@
 package Client.ClientView;
 
+import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
@@ -9,9 +10,11 @@ import java.io.IOException;
 public class BackgroundImageJFrame extends JFrame {
     private JLabel l1;
     private Timer t;
-    private int x;
-    private boolean isBack;
-    private Thread thread;
+
+    AudioFormat audioFormat;
+    AudioInputStream audioInputStream;
+    SourceDataLine sourceDataLine;
+    boolean stopPlayback = false;
 
     public BackgroundImageJFrame() {
         setTitle("Background Color for JFrame");
@@ -21,6 +24,7 @@ public class BackgroundImageJFrame extends JFrame {
         setLayout(new GridBagLayout());
         this.pack();
         this.setBackgroundImage();
+        runMusic(new File("data/musicFile.wav"));
 
     }
 
@@ -58,8 +62,27 @@ public class BackgroundImageJFrame extends JFrame {
 
    public void setFade(int r, int g, int b, int x){
        l1.setForeground(new Color(r, g, b, x));
-       
+
    }
+
+
+    public void runMusic(File file){
+
+        try {
+            Clip clip = AudioSystem.getClip();
+            AudioInputStream ais = AudioSystem.getAudioInputStream( file );
+            clip.open(ais);
+            clip.loop(Clip.LOOP_CONTINUOUSLY);
+
+        } catch (LineUnavailableException e) {
+            e.printStackTrace();
+        }catch(UnsupportedAudioFileException e1){
+            e1.printStackTrace();
+        }catch(IOException e2){
+            e2.printStackTrace();
+        }
+
+    }
 
 
 
