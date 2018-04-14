@@ -3,6 +3,7 @@ package Client.ClientView;
 import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 
@@ -10,11 +11,9 @@ import java.io.IOException;
 public class BackgroundImageJFrame extends JFrame {
     private JLabel l1;
     private Timer t;
+    private Clip clip;
 
-    AudioFormat audioFormat;
-    AudioInputStream audioInputStream;
-    SourceDataLine sourceDataLine;
-    boolean stopPlayback = false;
+
 
     public BackgroundImageJFrame() {
         setTitle("Background Color for JFrame");
@@ -69,10 +68,11 @@ public class BackgroundImageJFrame extends JFrame {
     public void runMusic(File file){
 
         try {
-            Clip clip = AudioSystem.getClip();
+            clip = AudioSystem.getClip();
             AudioInputStream ais = AudioSystem.getAudioInputStream( file );
             clip.open(ais);
             clip.loop(Clip.LOOP_CONTINUOUSLY);
+
 
         } catch (LineUnavailableException e) {
             e.printStackTrace();
@@ -81,6 +81,19 @@ public class BackgroundImageJFrame extends JFrame {
         }catch(IOException e2){
             e2.printStackTrace();
         }
+
+    }
+
+    public void stopMusic(){
+        clip.stop();
+
+    }
+
+    public void registerController(KeyListener controller){
+        this.addKeyListener(controller);
+    }
+    public void closeFrame(){
+        this.dispose();
 
     }
 

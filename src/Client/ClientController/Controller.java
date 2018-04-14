@@ -7,6 +7,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
+import java.io.File;
+import java.util.concurrent.TimeUnit;
 
 public class Controller extends Thread implements ActionListener, KeyListener {
     private Timer t;
@@ -21,19 +23,32 @@ public class Controller extends Thread implements ActionListener, KeyListener {
 
     @Override
     public void actionPerformed(ActionEvent e){
+
     }
 
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println("s'ha apretat una tecla pressed");
+        if(e.getKeyCode()==10){
+            System.out.println("pressed");
+            bImage.stopMusic();
+            bImage.runMusic(new File("data/Laser.wav"));
+            try {
+                TimeUnit.MILLISECONDS.sleep(1600);
+            } catch (InterruptedException e1) {
+                e1.printStackTrace();
+            }
+            bImage.stopMusic();
+            bImage.closeFrame();
+
+
+
+        }
     }
     @Override
     public void keyTyped(KeyEvent e) {
-        System.out.println("s'ha apretat una tecla typed");
     }
     @Override
     public void keyReleased(KeyEvent e) {
-        System.out.println("s'ha apretat una tecla realased");
     }
 
     @Override
