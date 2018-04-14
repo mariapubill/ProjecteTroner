@@ -1,11 +1,15 @@
 package Client;
 
+import Client.ClientController.Controller;
 import Client.ClientView.BackgroundImageJFrame;
 
 public class ClientMain {
     public static void main(String args[]) {
-        System.out.println("estic al server");
         BackgroundImageJFrame bImage =  new BackgroundImageJFrame();
-       bImage.setVisible(true);
+        Controller controller = new Controller(bImage);
+        bImage.setVisible(true);
+
+
+
     }
 }

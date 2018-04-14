@@ -7,8 +7,11 @@ import java.io.IOException;
 
 
 public class BackgroundImageJFrame extends JFrame {
-    private JButton b1;
     private JLabel l1;
+    private Timer t;
+    private int x;
+    private boolean isBack;
+    private Thread thread;
 
     public BackgroundImageJFrame() {
         setTitle("Background Color for JFrame");
@@ -16,32 +19,31 @@ public class BackgroundImageJFrame extends JFrame {
         setLocationRelativeTo(null);
         setDefaultCloseOperation(EXIT_ON_CLOSE);
         setLayout(new GridBagLayout());
+        this.pack();
         this.setBackgroundImage();
-
 
     }
 
     public void setBackgroundImage() {
-        setContentPane(new JLabel(new ImageIcon("/Users/mariapubillfont/Desktop/back.png")));
-        setLayout(new FlowLayout());
-        JButton b1 = new JButton("I am a button");
-        //add(b1);
-        // Just for refresh :) Not optional!
-        setSize(900, 600);
+
+        setLocation(300,150);
+        setContentPane(new JLabel(new ImageIcon("data/back.png")));
+        setLayout(new GridBagLayout());
+        pack();
+        setSize(1000, 600);
 
         try {
-            Font font = Font.createFont(Font.TRUETYPE_FONT, new File("/Users/mariapubillfont/Desktop/java.ttf"));
-            ;
-            //font = Font.createFont(Font.TRUETYPE_FONT, getClass().getResourceAsStream("/java.ttf"));
+            Font font = Font.createFont(Font.TRUETYPE_FONT, new File("data/font2.ttf"));
             l1 = new JLabel("PRESS ENTER TO START");
 
             GraphicsEnvironment genv = GraphicsEnvironment.getLocalGraphicsEnvironment();
             genv.registerFont(font);
             font = font.deriveFont(48f);
             l1.setFont(font);
+
             GridBagConstraints gbc = new GridBagConstraints();
-            gbc.gridx = 3;
-            gbc.gridy = 3;
+            gbc.gridx = 2;
+            gbc.gridy = 2;
             this.add(l1, gbc);
 
         } catch (IOException e) {
@@ -51,6 +53,16 @@ public class BackgroundImageJFrame extends JFrame {
 
         }
     }
+
+
+
+   public void setFade(int r, int g, int b, int x){
+       l1.setForeground(new Color(r, g, b, x));
+       
+   }
+
+
+
 }
 
 
