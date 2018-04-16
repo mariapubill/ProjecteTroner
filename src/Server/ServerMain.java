@@ -10,11 +10,11 @@ import java.time.LocalDate;
 
 public class ServerMain {
     public static void main(String args[]) {
-        System.out.println("estic al server");
+       /* System.out.println("estic al server");
         LocalDate localDate = LocalDate.now();
         Parser parser = new Parser();
         try {
-            parser.readJsonFile();
+           // parser.readJsonFile();
         } catch (IOException e) {
             e.printStackTrace();
         }
@@ -30,5 +30,6 @@ public class ServerMain {
                 System.out.println("no registra");
             }
             conn.disconnect();
-        }
-    }}
+        }*/
+    }
+}
