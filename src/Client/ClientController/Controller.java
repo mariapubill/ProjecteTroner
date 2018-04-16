@@ -4,14 +4,11 @@ import Client.ClientView.LabelClass;
 import Client.ClientView.MainView;
 
 import javax.swing.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
+import java.awt.event.*;
 import java.io.File;
 import java.util.concurrent.TimeUnit;
 
-public class Controller extends Thread implements ActionListener, KeyListener {
+public class Controller extends Thread implements ActionListener, KeyListener, MouseListener {
     private Timer t;
     private int x;
     private MainView view;
@@ -32,7 +29,7 @@ public class Controller extends Thread implements ActionListener, KeyListener {
     public void keyPressed(KeyEvent e) {
         if(e.getKeyCode()==10){
             System.out.println("pressed");
-            view.stopMusic();
+           view.stopMusic();
             view.runMusic(new File("data/Laser.wav"));
             try {
                 TimeUnit.MILLISECONDS.sleep(1600);
@@ -82,6 +79,20 @@ public class Controller extends Thread implements ActionListener, KeyListener {
             }
         });
         t.start();
+    }
+
+
+    @Override
+    public void mouseClicked(MouseEvent e) {}
+    @Override
+    public void mousePressed(MouseEvent e) {}
+    @Override
+    public void mouseReleased(MouseEvent e) {}
+    @Override
+    public void mouseEntered(MouseEvent e) {}
+    @Override
+    public void mouseExited(MouseEvent e) {
+
     }
 
 }
