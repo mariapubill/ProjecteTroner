@@ -1,7 +1,7 @@
 package Server.ServerModel;
 
-import org.json.JSONException;
-import org.json.JSONObject;
+//import org.json.JSONException;
+//import org.json.JSONObject;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -55,7 +55,7 @@ public class Parser {
      * @throws IOException
      * @throws NullPointerException
      */
-    public void readJsonFile() throws IOException, NullPointerException {
+   /* public void readJsonFile() throws IOException, NullPointerException {
         File file = new File("data\\");
         if (!file.exists()) {
             throw new FileNotFoundException("No se ha encontrado el direcotrio");
@@ -88,7 +88,7 @@ public class Parser {
         }catch (JSONException e){
             throw new JSONException("Sintaxis d'arxiu Erronia");
         }
-    }
+    }*/
 
     /**
      * Getter del port al que se conecta el servidor para acceder a la base de datos
