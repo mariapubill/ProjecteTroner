@@ -1,16 +1,17 @@
 package Client.ClientView;
 
 
+import Client.ClientController.Controller;
+
 import javax.sound.sampled.*;
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.KeyListener;
 import java.io.File;
 import java.io.IOException;
 
 public class MainView extends JFrame{
     private LabelClass label = new LabelClass();
-    private LoginPane card2;
+    private LogSignPanel card2;
     private CardLayout layout;
     private Clip clip;
 
@@ -19,7 +20,7 @@ public class MainView extends JFrame{
         layout = new CardLayout();
         JPanel bgPanel = new BackgroundImageJFrame();
         JPanel card1 = label;
-        JPanel card2 = new LoginPane();
+        card2 = new LogSignPanel();
         bgPanel.setLayout(layout);
         bgPanel.add("1",card1);
         bgPanel.add("2",card2);
@@ -35,8 +36,6 @@ public class MainView extends JFrame{
         this.setSize(1000, 600);
         this.setLocationRelativeTo(null);
         this.setVisible(true);
-
-
     }
 
 
@@ -45,8 +44,10 @@ public class MainView extends JFrame{
     }
 
 
-    public void registerController(KeyListener controller){
-        this.addKeyListener(controller);
+    public void registerController(Controller c){
+        card2.registerControllerMouse(c);
+        card2.registerControllerButtons(c);
+        this.addKeyListener(c);
     }
 
 
@@ -77,6 +78,14 @@ public class MainView extends JFrame{
          label.setFade(r,g,b,x);
 
       }
+
+      public void augmentButtons(String button, float x){
+        card2.augmentButtons(button, x);
+      }
+
+    public void disaugmentButtons(String button, float x){
+        card2.disaugmentButton(button, x);
+    }
 
 
 }
