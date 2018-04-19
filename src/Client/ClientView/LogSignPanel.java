@@ -86,14 +86,14 @@ public class LogSignPanel extends JPanel{
     public void augmentButtons(String button, float x){
         if(button.equals("S")){
             font = font.deriveFont(x);
-            jbSingin.setBackground(new Color(70, 207, 222, 50));
-            jbSingin.setOpaque(true);
+            //jbSingin.setBackground(new Color(70, 207, 222, 50));
+            jbSingin.setOpaque(false);
             jbSingin.setFont(font);
         }
         if(button.equals("L")){
             font = font.deriveFont(x);
-            jbLogin.setOpaque(true);
-            jbLogin.setBackground(new Color(70, 207, 222, 50));
+            jbLogin.setOpaque(false);
+            //jbLogin.setBackground(new Color(70, 207, 222, 50));
             jbLogin.setFont(font);
         }
     }
@@ -114,15 +114,7 @@ public class LogSignPanel extends JPanel{
 
     }
 
-    public void setFade(int r, int g, int b, int x, String button) {
-        if(button.equals("L")) {
-            jbLogin.setForeground(new Color(r, g, b, x));
-        }
-        if(button.equals("S")){
-            jbSingin.setForeground(new Color(r, g, b, x));
-        }
 
-    }
 
 }
 

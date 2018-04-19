@@ -35,10 +35,7 @@ public class LabelClass extends JPanel {
             e1.printStackTrace();
 
         }
-
-
     }
-
 
     public void setFade(int r, int g, int b, int x) {
         l1.setForeground(new Color(r, g, b, x));

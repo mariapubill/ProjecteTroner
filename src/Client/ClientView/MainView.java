@@ -12,6 +12,8 @@ import java.io.IOException;
 public class MainView extends JFrame{
     private LabelClass label = new LabelClass();
     private LogSignPanel card2;
+    private LogInPanel card3;
+    private SignInPanel card4;
     private CardLayout layout;
     private Clip clip;
 
@@ -21,14 +23,17 @@ public class MainView extends JFrame{
         JPanel bgPanel = new BackgroundImageJFrame();
         JPanel card1 = label;
         card2 = new LogSignPanel();
+        card3 = new LogInPanel();
+        card4 = new SignInPanel();
+
         bgPanel.setLayout(layout);
         bgPanel.add("1",card1);
         bgPanel.add("2",card2);
+        bgPanel.add("3",card3);
+        bgPanel.add("4",card4);
 
         layout.show(bgPanel, "1");
         runMusic(new File("data/musicFile.wav"));
-
-
 
         // MainView t = new MainView();
         this.setContentPane(bgPanel);
@@ -40,6 +45,7 @@ public class MainView extends JFrame{
 
 
     public void changePanel(String which) {
+
         layout.show(this.getContentPane(), which);
     }
 
@@ -47,6 +53,10 @@ public class MainView extends JFrame{
     public void registerController(Controller c){
         card2.registerControllerMouse(c);
         card2.registerControllerButtons(c);
+        card3.registerControllerMouse(c);
+        card3.registerControllerButton(c);
+        card4.registerControllerButton(c);
+        card4.registerControllerMouse(c);
         this.addKeyListener(c);
     }
 
@@ -68,24 +78,34 @@ public class MainView extends JFrame{
 
     }
 
-     public void stopMusic() {
-        clip.stop();
+    public void turnOffVolume(){
+        FloatControl gainControl =
+                (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+        gainControl.setValue(-50.0f); //
+    }
+    public void turnOnVolume(){
+        FloatControl gainControl =
+                (FloatControl) clip.getControl(FloatControl.Type.MASTER_GAIN);
+        gainControl.setValue(6.0f); //
+    }
 
-     }
+     public void stopMusic() { clip.stop(); }
 
+     public void setFadeaux(int r, int g, int b, int x) {label.setFade(r,g,b,x); }
 
-     public void setFadeaux(int r, int g, int b, int x) {
-         label.setFade(r,g,b,x);
-
+     public void augmentButtons(String button, float x, int x1){
+        if(button.equals("Back")|| button.equals("Mute")){
+            card4.augmentButtons(button,x1);
+            card3.augmentButtons(button,x1);
+        }else {
+            card2.augmentButtons(button, x);
+        }
       }
-
-      public void augmentButtons(String button, float x){
-        card2.augmentButtons(button, x);
-      }
-
-    public void disaugmentButtons(String button, float x){
+      public void disaugmentButtons(String button, float x){
         card2.disaugmentButton(button, x);
     }
 
 
 }
+
+
