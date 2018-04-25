@@ -1,6 +1,7 @@
 package Client;
 
 import Client.ClientController.Controller;
+import Client.ClientController.EffectController;
 import Client.ClientView.MainView;
 
 public class ClientMain {
@@ -9,8 +10,10 @@ public class ClientMain {
         MainView view = new MainView();
 
        // BackgroundImageJFrame bImage =  new BackgroundImageJFrame();
+        EffectController controllerE = new EffectController(view);
         Controller controller = new Controller(view);
-        view.registerController(controller);
+        view.registerController(controllerE);
+        view.actionRegisterController(controller);
         view.setVisible(true);
     }
 }

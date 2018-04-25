@@ -13,7 +13,7 @@ public class BackgroundImageJFrame extends JPanel {
 
 
    // public BackgroundImageJFrame() {
-        Image bg = new ImageIcon("data/back.png").getImage();
+        Image bg = new ImageIcon("data/giphy.gif").getImage();
         @Override
         public void paintComponent(Graphics g) {
             g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);

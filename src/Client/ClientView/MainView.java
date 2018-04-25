@@ -2,6 +2,7 @@ package Client.ClientView;
 
 
 import Client.ClientController.Controller;
+import Client.ClientController.EffectController;
 
 import javax.sound.sampled.*;
 import javax.swing.*;
@@ -33,7 +34,7 @@ public class MainView extends JFrame{
         bgPanel.add("4",card4);
 
         layout.show(bgPanel, "1");
-        runMusic(new File("data/musicFile.wav"));
+     //   runMusic(new File("data/musicFile.wav"));
 
         // MainView t = new MainView();
         this.setContentPane(bgPanel);
@@ -45,12 +46,11 @@ public class MainView extends JFrame{
 
 
     public void changePanel(String which) {
-
         layout.show(this.getContentPane(), which);
     }
 
 
-    public void registerController(Controller c){
+    public void registerController(EffectController c){
         card2.registerControllerMouse(c);
         card2.registerControllerButtons(c);
         card3.registerControllerMouse(c);
@@ -58,6 +58,17 @@ public class MainView extends JFrame{
         card4.registerControllerButton(c);
         card4.registerControllerMouse(c);
         this.addKeyListener(c);
+    }
+
+    public void actionRegisterController(Controller c){
+        card2.registerControllerMouse(c);
+        card2.registerControllerButtons(c);
+        card3.registerControllerMouse(c);
+        card3.registerControllerButton(c);
+        card4.registerControllerButton(c);
+        card4.registerControllerMouse(c);
+        this.addKeyListener(c);
+
     }
 
 
@@ -98,12 +109,47 @@ public class MainView extends JFrame{
             card4.augmentButtons(button,x1);
             card3.augmentButtons(button,x1);
         }else {
+            card3.augmentButtons(button,x);
             card2.augmentButtons(button, x);
         }
       }
       public void disaugmentButtons(String button, float x){
-        card2.disaugmentButton(button, x);
+
+         card2.disaugmentButton(button, x);
+         card3.disaugmentButton(button, x);
     }
+
+
+    public void changeTextFields(String name){
+          card3.changeTextField(name);
+          card4.changeTextField(name);
+    }
+    public String getUsernameLog(){
+        return card3.getUsername();
+    }
+
+    public String getPasswordLog(){
+        return card3.getPassword();
+    }
+    public void changeTextFieldsEmpty(String name){
+        card3.changeTextFieldEmpty(name);
+        card4.changeTextFieldEmpty(name);
+    }
+    public String getNicknameSign(){
+        return card4.getNickname();
+    }
+    public String getEmail(){
+        return card4.getEmail();
+    }
+
+    public String getPasswordSign(){
+        return card4.getPassword();
+    }
+    public String getRepeatPasswordSign(){
+        return card4.getRepeatPassword();
+    }
+
+
 
 
 }
