@@ -1,7 +1,6 @@
 package Client.ClientController;
 
 import Client.ClientView.MainView;
-import Client.ClientView.Music;
 
 import javax.swing.*;
 import java.awt.event.*;
