@@ -26,7 +26,6 @@ public class LogInPanel extends JPanel {
     private boolean activateU;
     private boolean activateP;
 
-
     public LogInPanel() {
         this.setOpaque(false);
         //this.setLayout(new GridBagLayout());
@@ -41,7 +40,7 @@ public class LogInPanel extends JPanel {
         jbLogin.addActionListener(controller);
         jbLogin.setActionCommand("Login");
         jbBack.addActionListener(controller);
-        jbBack.setActionCommand("Back");
+        jbBack.setActionCommand("Return");
         jbMute.addActionListener(controller);
         jbMute.setActionCommand("Mute");
         jtfUsername.addActionListener(controller);
@@ -121,7 +120,7 @@ public class LogInPanel extends JPanel {
     public void createButtons() {
         jbBack = new JButton();
         try {
-            img = new ImageIcon("data/neon.png").getImage();
+            img = new ImageIcon("data/display/neon.png").getImage();
             icon = img.getScaledInstance(80, 80, Image.SCALE_DEFAULT);
             //img.getScaledInstance(2,2,Image.SCALE_FAST);
             jbBack.setIcon(new ImageIcon(icon));
@@ -145,7 +144,7 @@ public class LogInPanel extends JPanel {
             jbLogin.setOpaque(false);//enable this to create a button border
             jbLogin.setForeground(new Color(157, 207, 222));
 
-            muteImg = new ImageIcon("data/neonmute.png").getImage();
+            muteImg = new ImageIcon("data/display/neonmute.png").getImage();
             muteIcon = muteImg.getScaledInstance(80, 80, Image.SCALE_DEFAULT);
             jbMute = new JButton();
             jbMute.setIcon(new ImageIcon(muteIcon));
@@ -233,7 +232,7 @@ public class LogInPanel extends JPanel {
         JPanel jpaux = new JPanel();
         jpaux.setPreferredSize(new Dimension(50, 50));
         jpaux.setOpaque(false);
-       // add(jpaux, c);
+        // add(jpaux, c);
 
         c.weighty = 10;
         c.gridx = 0;
@@ -260,6 +259,7 @@ public class LogInPanel extends JPanel {
 
     public void changeTextField(String name){
         if(name.equals("Username")){
+            System.out.println("hola");
             jtfUsername.setText("");
             jtfUsername.setForeground(Color.black);
         }else if(name.equals("Password")){

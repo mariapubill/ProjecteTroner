@@ -1,29 +1,43 @@
 package Client.ClientView;
 
+import javax.sound.sampled.Clip;
 import javax.swing.*;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
-
 public class LabelClass extends JPanel {
     private JLabel l1;
+    private JLabel label2;
+    private Clip clip;
 
     public LabelClass(){
-        this.setOpaque(false);
-        this.setLayout(new GridBagLayout());
-
-
         try {
-            Font font = Font.createFont(Font.TRUETYPE_FONT, new File("data/font2.ttf"));
-            l1 = new JLabel("PRESS ENTER TO START");
+            this.setOpaque(true);
+            GridBagLayout gridbag = new GridBagLayout();
+            GridBagConstraints c = new GridBagConstraints();
+            this.setLayout(gridbag);
+            this.setOpaque(false);
+            Font font = Font.createFont(Font.TRUETYPE_FONT, new File("data\\fonts\\outriderchromeital.ttf"));
+            l1 = new JLabel(" TRONER ");
+            label2 = new JLabel("1 CREDIT PRESS ENTER BUTTON ");
             GraphicsEnvironment genv = GraphicsEnvironment.getLocalGraphicsEnvironment();
             genv.registerFont(font);
-            font = font.deriveFont(48f);
+            font = font.deriveFont(142f);
             l1.setFont(font);
-            GridBagConstraints gbc = new GridBagConstraints();
-            gbc.gridx = 2;
-            gbc.gridy = 2;
-            this.add(l1, gbc);
+            c.fill = GridBagConstraints.NORTH;
+            c.weighty = 3;
+            c.gridx = 0;
+            c.weightx = 0;
+            gridbag.setConstraints(l1,c);
+            this.add(l1);
+            c.fill = GridBagConstraints.SOUTH;
+            c.weighty = 4;
+            c.gridx = 0;
+            c.weightx = 0;
+            label2.setFont(font.deriveFont(30f));
+            gridbag.setConstraints(label2,c);
+            this.add(label2);
+
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -33,14 +47,12 @@ public class LabelClass extends JPanel {
         }
 
 
-
     }
 
 
     public void setFade(int r, int g, int b, int x) {
-        l1.setForeground(new Color(r, g, b, x));
-
+        l1.setForeground(new Color(157, 207,222, x));
+        label2.setForeground(new Color(157, 207,222,x));
+        this.repaint();
     }
-
-
 }

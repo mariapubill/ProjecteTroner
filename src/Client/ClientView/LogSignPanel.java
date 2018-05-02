@@ -14,7 +14,7 @@ public class LogSignPanel extends JPanel{
 
     public LogSignPanel(){
         try {
-            font = Font.createFont(Font.TRUETYPE_FONT, new File("data/font2.ttf"));
+            font = Font.createFont(Font.TRUETYPE_FONT, new File("data\\fonts\\font2.ttf"));
             GraphicsEnvironment genv = GraphicsEnvironment.getLocalGraphicsEnvironment();
             genv.registerFont(font);
             font = font.deriveFont(30f);

@@ -10,6 +10,7 @@ import java.io.File;
 import java.io.IOException;
 
 public class SignInPanel extends JPanel{
+
     private JButton jbBack;
     private JButton jbMute;
     private JButton jbSignin;
@@ -43,7 +44,7 @@ public class SignInPanel extends JPanel{
 
     public void registerControllerButton(ActionListener controller){
         jbBack.addActionListener(controller);
-        jbBack.setActionCommand("Back");
+        jbBack.setActionCommand("Return");
         jbMute.addActionListener(controller);
         jbMute.setActionCommand("Mute");
         jtfNickname.addActionListener(controller);
@@ -69,7 +70,7 @@ public class SignInPanel extends JPanel{
             muteIcon = muteImg.getScaledInstance(x,x,Image.SCALE_DEFAULT);
             jbMute.setIcon(new ImageIcon(muteIcon));
         }
-        if(button.equals("Back")){
+        if(button.equals("Return")){
             icon = img.getScaledInstance(x,x,Image.SCALE_DEFAULT);
             jbBack.setIcon(new ImageIcon(icon));
 
@@ -146,7 +147,7 @@ public class SignInPanel extends JPanel{
         jbMute = new JButton();
 
         try {
-            img = new ImageIcon("data/neon.png").getImage();
+            img = new ImageIcon("data/display/neon.png").getImage();
             icon = img.getScaledInstance(80,80,Image.SCALE_DEFAULT);
             jbBack.setIcon(new ImageIcon(icon));
             jbBack.setOpaque(false);
@@ -169,7 +170,7 @@ public class SignInPanel extends JPanel{
             jbSignin.setOpaque(false);//enable this to create a button border
             jbSignin.setForeground(new Color(157, 207, 222));
 
-            muteImg = new ImageIcon("data/neonmute.png").getImage();
+            muteImg = new ImageIcon("data/display/neonmute.png").getImage();
             muteIcon = muteImg.getScaledInstance(80,80,Image.SCALE_DEFAULT);
             jbMute.setIcon(new ImageIcon(muteIcon));
             jbMute.setOpaque(false);
@@ -186,7 +187,7 @@ public class SignInPanel extends JPanel{
 
     public void createLabels(){
         try {
-            font = Font.createFont(Font.TRUETYPE_FONT, new File("data/font2.ttf"));
+            font = Font.createFont(Font.TRUETYPE_FONT, new File("data/fonts/font2.ttf"));
             GraphicsEnvironment genv = GraphicsEnvironment.getLocalGraphicsEnvironment();
             genv.registerFont(font);
             font = font.deriveFont(20f);
