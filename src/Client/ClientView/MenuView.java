@@ -54,7 +54,6 @@ public class MenuView extends JPanel {
         jButton5 = new JButton();
         jButton6 = new JButton();
         jButton7 = new JButton();
-        System.out.println("En esta " + mainView.getHeight());
         //Buttons size and position
         jButton.setBounds((int) (mainView.getWidth() / 120 + (0.06) * (mainView.getWidth())), (int) (mainView.getHeight() / 12), 150 + (int) (mainView.getWidth() / 8), 30 + (int) (mainView.getHeight() / 8));
         jButton2.setBounds((int) (mainView.getWidth() / 120 + (0.06) * (mainView.getWidth())), (int) (mainView.getHeight() / 12 + (0.20) * (mainView.getHeight())), 150 + (int) (mainView.getWidth() / 8), 30 + (int) (mainView.getHeight() / 8));
@@ -147,7 +146,6 @@ public class MenuView extends JPanel {
        jPanel.setBounds((int) (mainView.getWidth() / 6 + (0.22) * (mainView.getWidth())), (int) ((float)    (0.09) * (mainView.getHeight())),(int)((float)mainView.getWidth()/1.80),(int)((float)mainView.getHeight()/1.5));
 
        //System.out.println(30+(float)(0.20)*mainView.getHeight());
-       System.out.println("height"+jPanel.getHeight());
       // jPanel.add(makePanel(jPanel.getHeight(),mainView.getWidth()));
         name = new JLabel("DAVID");
         try{
@@ -188,7 +186,8 @@ public class MenuView extends JPanel {
         jPanel.add(game4);
         jPanel.add(tournament);
         jPanel.add(name);
-        System.out.println("(int)((float)jPanel.getHeight())"+100+(int)(float)(jTable.getHeight()*1.5));
+       //
+        // System.out.println("(int)((float)jPanel.getHeight())"+100+(int)(float)(jTable.getHeight()*1.5));
       //  (int)((float)(200-(mainView.getHeight()/(9))+(0.10) * (mainView.getHeight()))))
      //   System.out.println("Resta: "+(int)((float)(-211*((float)400/jPanel.getHeight()))));
       //  System.out.println("tamño panel "+jPanel.getHeight());

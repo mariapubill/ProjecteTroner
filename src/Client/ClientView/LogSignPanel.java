@@ -74,7 +74,6 @@ public class LogSignPanel extends JPanel{
     }
 
     public void registerControllerMouse(MouseListener controller){
-        System.out.println(jbSingin.getLocation());
         jbSingin.addMouseListener(controller);
         jbLogin.addMouseListener(controller);
 

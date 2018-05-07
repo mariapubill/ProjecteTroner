@@ -19,7 +19,7 @@ public class WindowController implements ComponentListener {
      //   Component currentLayout = mainView.getBgPanel().getComponent(controller.getActualLayout());
      //   controller.setActualLayout(controller.getActualLayout());
         //controller.setActualLayout(controller.ge);
-        System.out.println(controller.getActualLayout());
+       // System.out.println(controller.getActualLayout());
         if(controller.getActualLayout().equals(5)) {
             mainView.getMenuView().changeSize(mainView);
             //mainView.getBgPanel().remove(controller.getActualLayout() - 1);

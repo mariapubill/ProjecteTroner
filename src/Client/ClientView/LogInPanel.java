@@ -259,7 +259,6 @@ public class LogInPanel extends JPanel {
 
     public void changeTextField(String name){
         if(name.equals("Username")){
-            System.out.println("hola");
             jtfUsername.setText("");
             jtfUsername.setForeground(Color.black);
         }else if(name.equals("Password")){

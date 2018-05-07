@@ -60,12 +60,13 @@ public class Music implements Runnable  {
 
                     if(!music.isOpen()){
                             changeMusic = false;
-                                try {
+                               /* try {
 
-                                    System.out.println(music.isActive());
+                                   //
+                                    // System.out.println(music.isActive());
                                 } catch (Exception e) {
 
-                                }
+                                }*/
                         if(numClip == (playlist.size())){
                             numClip = 0;
                         }

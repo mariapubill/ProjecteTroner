@@ -1,5 +1,7 @@
 package Client.ClientController;
 
+import Client.ClientNetwork.NetworkService;
+import Client.ClientView.GameMainView;
 import Client.ClientView.MainView;
 
 import javax.swing.*;
@@ -40,7 +42,6 @@ public class Controller extends Thread implements ActionListener, KeyListener, M
         music = new Music(this);
         new Thread(music).start();
         this.run();
-        System.out.println("hol");
         acum = 0;
 
     }
@@ -55,15 +56,14 @@ public class Controller extends Thread implements ActionListener, KeyListener, M
         }
         if (e.getActionCommand().equals("2game")){
             ((JButton)e.getSource()).getTopLevelAncestor().requestFocus();
-            System.out.println("XD");
+            startGame();
         }
         if (e.getActionCommand().equals("4game")){
             ((JButton)e.getSource()).getTopLevelAncestor().requestFocus();
-            System.out.println("XF");
         }
         if (e.getActionCommand().equals("Tournament")){
             ((JButton)e.getSource()).getTopLevelAncestor().requestFocus();
-            System.out.println("XN");
+
         }
         if (e.getActionCommand().equals("Exit")){
             if (view.showDialog("¿Desea salir del juego?", actualLayout)) {
@@ -134,8 +134,6 @@ public class Controller extends Thread implements ActionListener, KeyListener, M
 
     @Override
     public void keyPressed(KeyEvent e) {
-        System.out.println(e.getKeyCode());
-        System.out.println("LAYOUT ACTUAL" + actualLayout);
         if (e.getKeyCode() == 27) {
           switchAndChange();
         }
@@ -204,7 +202,6 @@ public class Controller extends Thread implements ActionListener, KeyListener, M
                 }
 
                 if (isTimeS && !isTimeL && size2 < 40f && actualLayout == 3) {
-                    System.out.println("hola");
                     view.augmentButtons("S", size2++, 0);
                 }
                 if (isTimeL && !isTimeS && size < 40f) {
@@ -240,7 +237,7 @@ public class Controller extends Thread implements ActionListener, KeyListener, M
         if (activateN == false && e.getComponent().getY() == 0) {
             //Hablar esto, me entra abajo
             view.changeTextFields("Username");
-            ((JTextField)e.getSource()).getTopLevelAncestor().requestFocus();
+            ((JButton)e.getSource()).getTopLevelAncestor().requestFocus();
             actualLayout++;
             activateN = true;
         }
@@ -389,6 +386,30 @@ public class Controller extends Thread implements ActionListener, KeyListener, M
                 view.changePanel(actualLayout.toString());
                 break;
         }
+    }
+
+    public void startGame(){
+        SwingUtilities.invokeLater(new Runnable() {
+            @Override
+            public void run() {
+                //creem la vista
+                GameMainView gameView = new GameMainView();
+                //creem network
+                NetworkService nService = new NetworkService(gameView);
+                //Creem els controladors.
+                GameController controller = new GameController(gameView,nService);
+                //Establim les "relacions" V->C
+                gameView.actionPerformed(controller);
+                //fem visible les dues finestres.
+
+                //finestra.setVisible(true);
+                if(nService.isByebye()){
+                    gameView.setVisible(false);
+                }else{
+                    gameView.setVisible(true);
+                }
+            }
+        });
     }
 }
 

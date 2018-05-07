@@ -49,12 +49,10 @@ public class MainView extends JFrame{
         bgPanel.add("5",menuView);
         layout.show(bgPanel, "1");
 
-        System.out.println();
-
-        // MainView t = new MainView();
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
         this.setContentPane(bgPanel);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-        this.setSize(1000, 600);
+        this.setSize((int)(screenSize.width*(25.0/36)), (int)(screenSize.height*(2.0/3)));
         this.setLocationRelativeTo(null);
         this.setVisible(true);
     }

@@ -1,12 +1,9 @@
 package Server;
 
-import Server.ServerModel.ConectorDB;
-import Server.ServerModel.GestorDB;
-import Server.ServerModel.Parser;
-import Server.ServerModel.User;
+import Server.ServerController.GameController;
+import Server.ServerModel.ServerGrid;
 
-import java.io.IOException;
-import java.time.LocalDate;
+import javax.swing.*;
 
 public class ServerMain {
     public static void main(String args[]) {
@@ -31,5 +28,25 @@ public class ServerMain {
             }
             conn.disconnect();
         }*/
+
+
+        SwingUtilities.invokeLater(new Runnable() {
+            public void run() {
+                // creem la vista
+
+                // creem el model
+                ServerGrid model = new ServerGrid();
+
+                // en aquest cas no usem controlador
+                // creem el servidor i establim relacions
+                GameController c = new GameController(model);
+                //Server server = new Server(c, model);
+                // fem la vista visible
+
+                // iniciem el servidor
+
+            }
+        });
+
     }
 }
