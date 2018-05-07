@@ -17,7 +17,7 @@ public class LabelClass extends JPanel {
             GridBagConstraints c = new GridBagConstraints();
             this.setLayout(gridbag);
             this.setOpaque(false);
-            Font font = Font.createFont(Font.TRUETYPE_FONT, new File("data\\fonts\\outriderchromeital.ttf"));
+            Font font = Font.createFont(Font.TRUETYPE_FONT, new File("data/fonts/outriderchromeital.ttf"));
             l1 = new JLabel(" TRONER ");
             label2 = new JLabel("1 CREDIT PRESS ENTER BUTTON ");
             GraphicsEnvironment genv = GraphicsEnvironment.getLocalGraphicsEnvironment();

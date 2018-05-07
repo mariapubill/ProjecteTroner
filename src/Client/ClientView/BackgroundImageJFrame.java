@@ -12,7 +12,7 @@ public class BackgroundImageJFrame extends JPanel {
     private JLabel l1;
     private Timer t;
     private Clip clip;
-    private Image bg = new ImageIcon("data\\display\\giphy.gif").getImage();
+    private Image bg = new ImageIcon("data/display/giphy.gif").getImage();
 
     @Override
     public void paintComponent(Graphics g) {
@@ -28,9 +28,9 @@ public class BackgroundImageJFrame extends JPanel {
 
     public void setBg(int actualLayout) {
         if(actualLayout>4) {
-            this.bg = new ImageIcon("data\\display\\TronerBueno.gif").getImage();
+            this.bg = new ImageIcon("data/display/TronerBueno.gif").getImage();
         }else{
-            this.bg = new ImageIcon("data\\display\\giphy.gif").getImage();
+            this.bg = new ImageIcon("data/display/giphy.gif").getImage();
         }
         }
 }

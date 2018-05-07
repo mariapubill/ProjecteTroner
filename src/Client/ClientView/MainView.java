@@ -49,6 +49,8 @@ public class MainView extends JFrame{
         bgPanel.add("5",menuView);
         layout.show(bgPanel, "1");
 
+        System.out.println();
+
         // MainView t = new MainView();
         this.setContentPane(bgPanel);
         this.setDefaultCloseOperation(EXIT_ON_CLOSE);

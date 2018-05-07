@@ -30,7 +30,7 @@ public class MenuView extends JPanel {
     private MainView mainView;
 
 
-    Image bg = new ImageIcon("data\\display\\giphy.gif").getImage();
+    Image bg = new ImageIcon("data/display/giphy.gif").getImage();
 
     @Override
     public void paintComponent(Graphics g) {
@@ -127,7 +127,7 @@ public class MenuView extends JPanel {
 
 
         //Return Button
-        Image img7 = new ImageIcon("data/display/neon.png").getImage();
+        Image img7 = new ImageIcon("data/display/tools.png").getImage();
         img7 = img7.getScaledInstance(15 + (int) (mainView.getWidth() / 24), 15 + (int) (mainView.getWidth() / 24), Image.SCALE_DEFAULT);
         jButton7.setIcon(new ImageIcon(img7));
         jButton7.setOpaque(false);
@@ -151,7 +151,7 @@ public class MenuView extends JPanel {
       // jPanel.add(makePanel(jPanel.getHeight(),mainView.getWidth()));
         name = new JLabel("DAVID");
         try{
-            Font font = Font.createFont(Font.TRUETYPE_FONT, new File("data\\fonts\\GearsOfPeace.ttf"));
+            Font font = Font.createFont(Font.TRUETYPE_FONT, new File("data/fonts/GearsOfPeace.ttf"));
             GraphicsEnvironment genv = GraphicsEnvironment.getLocalGraphicsEnvironment();
             genv.registerFont(font);
             font = font.deriveFont(20f);
@@ -255,7 +255,7 @@ public class MenuView extends JPanel {
         }
 
         try{
-            Font font = Font.createFont(Font.TRUETYPE_FONT, new File("data\\fonts\\GearsOfPeace.ttf"));
+            Font font = Font.createFont(Font.TRUETYPE_FONT, new File("data/fonts/GearsOfPeace.ttf"));
             GraphicsEnvironment genv = GraphicsEnvironment.getLocalGraphicsEnvironment();
             genv.registerFont(font);
             font = font.deriveFont(13f);
@@ -376,7 +376,7 @@ public class MenuView extends JPanel {
        // this.jPanel.setOpaque(true);
         jButton7.setBounds((int) (mainView.getWidth() / 6 + (0.46) * (mainView.getWidth())), (int) (mainView.getHeight() /6 + (0.59) * (mainView.getHeight())), 15 + (int) (mainView.getWidth() / 24), 15 + (int) (mainView.getWidth() / 24));
 
-        Image img7 = new ImageIcon("data/display/neon.png").getImage();
+        Image img7 = new ImageIcon("data/display/tools.png").getImage();
         img7 = img7.getScaledInstance(15 + (int) (mainView.getWidth() / 24), 15 + (int) (mainView.getWidth() / 24), Image.SCALE_DEFAULT);
         jButton7.setIcon(new ImageIcon(img7));
         jButton7.setOpaque(false);
@@ -388,7 +388,7 @@ public class MenuView extends JPanel {
     }
 
     private class MyPanel extends JPanel{
-        private Image bg = new ImageIcon("data\\display\\Ranking.png").getImage();
+        private Image bg = new ImageIcon("data/display/Ranking.png").getImage();
         @Override
         public void paintComponent(Graphics g) {
             g.drawImage(bg, 0, 0, getWidth(), getHeight(), this);

@@ -8,7 +8,7 @@ import java.util.LinkedList;
 
 public class Music implements Runnable  {
 
-    private String locationFile = "data\\music\\";
+    private String locationFile = "data/music/";
     private Clip music;
     private LinkedList<String> playlist ;
     private Clip sound;
@@ -47,7 +47,7 @@ public class Music implements Runnable  {
                     }
 
                     if (!music.isOpen()) {
-                        runMusic(new File("data\\LogInTheme.wav"));
+                        runMusic(new File("data/LogInTheme.wav"));
                     }
                 } else {
                     try{
@@ -91,7 +91,7 @@ public class Music implements Runnable  {
             } else {
                 if(music.isOpen()) {
                     music.close();
-                    runSound(new File("data\\sounds\\Laser.wav"));
+                    runSound(new File("data/sounds/Laser.wav"));
                 }
 
             }
@@ -104,12 +104,12 @@ public class Music implements Runnable  {
 
 
     public void loadPlaylist() throws FileNotFoundException {
-        File file = new File("data\\music\\");
+        File file = new File("data/music/");
         if (file.exists()) {
             File[] ficheros = file.listFiles();
             for (int i = 0; i < ficheros.length; i++) {
                 String s = new String(ficheros[i].getName());
-                playlist.add("data\\music\\"+s);
+                playlist.add("data/music/"+s);
             }
 
         } else {
@@ -120,12 +120,12 @@ public class Music implements Runnable  {
     public void turnOffVolume(){
         FloatControl gainControl =
                 (FloatControl) music.getControl(FloatControl.Type.MASTER_GAIN);
-        gainControl.setValue(-59.0f); //
+        gainControl.setValue(-59.0f);
     }
     public void turnOnVolume(){
         FloatControl gainControl =
                 (FloatControl) music.getControl(FloatControl.Type.MASTER_GAIN);
-        gainControl.setValue(6.0f); //
+        gainControl.setValue(6.0f);
     }
     public void runMusic(File file) {
         try {
@@ -133,11 +133,9 @@ public class Music implements Runnable  {
             music = AudioSystem.getClip();
             AudioInputStream ais = AudioSystem.getAudioInputStream(file);
             music.open(ais);
-            System.out.println(playlist.size()+"dsfakopsdfkopasdpo");
 
             if(controller.getActualLayout() != 1) {
                 music.loop(0);
-                System.out.println("hace pasada "+numClip);
                 numClip++;
             }else{
                 music.loop(Clip.LOOP_CONTINUOUSLY);
@@ -158,7 +156,6 @@ public class Music implements Runnable  {
             AudioInputStream ais = AudioSystem.getAudioInputStream(file);
             sound.open(ais);
             sound.loop(Clip.LOOP_CONTINUOUSLY);
-            System.out.println("looool");
 
         } catch (LineUnavailableException e) {
             e.printStackTrace();

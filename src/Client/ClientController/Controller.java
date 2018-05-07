@@ -49,7 +49,6 @@ public class Controller extends Thread implements ActionListener, KeyListener, M
     public void actionPerformed(ActionEvent e) {
         if (e.getActionCommand().equals("Login")){
             ((JButton)e.getSource()).getTopLevelAncestor().requestFocus();
-            System.out.println(actualLayout+"fdlaspdf,lpasdfplásdl´fasdf,ads,lfadsá");
             actualLayout = 5;
             view.changePanel(actualLayout.toString());
 
@@ -106,7 +105,6 @@ public class Controller extends Thread implements ActionListener, KeyListener, M
             view.changePanel(actualLayout.toString());
         }
         if (e.getActionCommand().equals("Back")) {
-            System.out.println("estamos aki");
             if (actualLayout == 5) {
 
                 if (view.showDialog("¿Desea volver a la ventana de inicio?", actualLayout)) {
@@ -241,37 +239,35 @@ public class Controller extends Thread implements ActionListener, KeyListener, M
     public void mouseClicked(MouseEvent e) {
         if (activateN == false && e.getComponent().getY() == 0) {
             //Hablar esto, me entra abajo
-            System.out.println("entra");
             view.changeTextFields("Username");
-            ((JButton)e.getSource()).getTopLevelAncestor().requestFocus();
+            ((JTextField)e.getSource()).getTopLevelAncestor().requestFocus();
             actualLayout++;
             activateN = true;
         }
 
         if (activateP == false&& e.getComponent().getY() == 124) {
             view.changeTextFields("Password");
-            System.out.println("hoooola");
-            ((JLabel)e.getSource()).getTopLevelAncestor().requestFocus();
+            ((JTextField)e.getSource()).getTopLevelAncestor().requestFocus();
             activateP=true;
         }
 
         if (e.getComponent().getY() == 47 && activate1==false) {
-            ((JLabel)e.getSource()).getTopLevelAncestor().requestFocus();
+            ((JTextField)e.getSource()).getTopLevelAncestor().requestFocus();
             view.changeTextFields("Nickname");
             activate1 = true;
         }
         if (e.getComponent().getY() == 141 && activate2==false) {
-            ((JLabel)e.getSource()).getTopLevelAncestor().requestFocus();
+            ((JTextField)e.getSource()).getTopLevelAncestor().requestFocus();
             view.changeTextFields("Email");
             activate2 = true;
         }
         if (e.getComponent().getY() == 235 && activate3==false) {
-            ((JLabel)e.getSource()).getTopLevelAncestor().requestFocus();
+            ((JPasswordField)e.getSource()).getTopLevelAncestor().requestFocus();
             view.changeTextFields("Password1");
             activate3 = true;
         }
         if (e.getComponent().getY() == 329 && activate4==false) {
-            ((JLabel)e.getSource()).getTopLevelAncestor().requestFocus();
+            ((JPasswordField)e.getSource()).getTopLevelAncestor().requestFocus();
             view.changeTextFields("RPassword");
             activate4 = true;
         }
